@@ -8,9 +8,7 @@ extension MarkdownTextConverter {
     func renderAttachment(_ attachment: MarkdownTextAttachment) -> TextContent {
         let replacement = attachmentReplacement(for: attachment)
 
-        let sizing: HostedAttachmentSizing = attachment.markup is Markdown.Image
-            ? .intrinsic
-            : .fittingLineFragment
+        let sizing: HostedAttachmentSizing = .fittingLineFragment
         let identifier = MarkdownTextInlineViewIdentifier(
             markup: attachment.markup,
             role: .blockAttachment

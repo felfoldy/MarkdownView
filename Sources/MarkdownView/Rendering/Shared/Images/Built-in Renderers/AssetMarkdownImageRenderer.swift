@@ -61,6 +61,7 @@ fileprivate struct AssetImage: View {
         if let image {
             Image(platformImage: image)
                 .resizable().aspectRatio(contentMode: .fit)
+                .frame(maxWidth: image.size.width)
             if let alt {
                 Text(alt).foregroundStyle(.secondary).font(.callout)
             }
