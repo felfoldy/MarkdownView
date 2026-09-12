@@ -21,7 +21,6 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/swiftlang/swift-markdown.git", from: "0.8.0"),
-        .package(url: "https://github.com/raspu/Highlightr.git", from: "2.3.0"),
         .package(url: "https://github.com/mgriebling/SwiftMath.git", from: "1.7.3"),
         .package(url: "https://github.com/LiYanan2004/RichText.git", from: "1.0.0"),
     ],
@@ -32,11 +31,6 @@ let package = Package(
                 .product(
                     name: "Markdown",
                     package: "swift-markdown"
-                ),
-                .product(
-                    name: "Highlightr",
-                    package: "Highlightr",
-                    condition: .when(platforms: [.iOS, .macOS])
                 ),
                 .product(
                     name: "SwiftMath",
