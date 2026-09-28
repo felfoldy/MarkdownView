@@ -22,7 +22,8 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/swiftlang/swift-markdown.git", from: "0.8.0"),
         .package(url: "https://github.com/mgriebling/SwiftMath.git", from: "1.7.3"),
-        .package(url: "https://github.com/LiYanan2004/RichText.git", from: "1.0.0"),
+        // Fork until tap locations land upstream.
+        .package(url: "https://github.com/felfoldy/RichText.git", branch: "swiftpy/tap-location"),
     ],
     targets: [
         .target(

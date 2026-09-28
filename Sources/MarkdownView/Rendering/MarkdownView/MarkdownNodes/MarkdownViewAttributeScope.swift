@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import Markdown
 
 extension AttributeScopes {
     struct MarkdownViewAttributeScope: AttributeScope {
         let isHTML: IsHTMLAttribute
+        let markdownBlockRange: MarkdownBlockRangeAttribute
     }
 }
 
@@ -24,5 +26,12 @@ extension AttributeScopes.MarkdownViewAttributeScope {
         static let name: String = "isHTML"
         
         typealias Value = Bool
+    }
+
+    /// The source range of the top-level block a run belongs to.
+    enum MarkdownBlockRangeAttribute: AttributedStringKey {
+        static let name: String = "markdownBlockRange"
+
+        typealias Value = SourceRange
     }
 }

@@ -60,12 +60,22 @@ struct MarkdownTextConverter: @MainActor MarkupVisitor {
     }
 
     func makeTextContent(for markup: any Markup) -> TextContent {
-        let semanticNodes = MarkdownTextSemanticBuilder(
-            configuration: configuration
-        )
-        .makeNodes(for: markup)
+        let builder = MarkdownTextSemanticBuilder(configuration: configuration)
+        guard let document = markup as? Markdown.Document else {
+            return render(builder.makeNodes(for: markup))
+        }
 
-        return render(semanticNodes)
+        // Every run of a top-level block carries the block's source range, so
+        // a tap anywhere in it can name the block.
+        return combineBlocks(
+            document.children.map { block in
+                let content = render(builder.makeNodes(for: block))
+                guard let range = block.range else { return content }
+                var attributes = AttributeContainer()
+                attributes.markdownBlockRange = range
+                return content.mergingAttributes(attributes)
+            }
+        )
     }
 
     func makeTextContent(for markups: [any Markup]) -> TextContent {
