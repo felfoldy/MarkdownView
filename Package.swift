@@ -17,7 +17,7 @@ let package = Package(
     ],
     traits: [
         "LaTeX",
-        .default(enabledTraits: ["LaTeX"]),
+        .default(enabledTraits: []),
     ],
     dependencies: [
         .package(url: "https://github.com/swiftlang/swift-markdown.git", from: "0.8.0"),
