@@ -79,10 +79,10 @@ public struct StreamingMarkdownReader<Content: View>: View {
                 renderCoordinator.reset()
                 submitMarkdown(latestStreamedText)
             }
-            .onChange(of: parsingOptions) { options in
+            .onChange(of: parsingOptions) { _, options in
                 submitMarkdown(source.text)
             }
-            .onChange(of: streamingRenderThrottle) { throttle in
+            .onChange(of: streamingRenderThrottle) { _, throttle in
                 renderCoordinator.setRenderInterval(throttle)
                 renderCoordinator.reset()
                 submitMarkdown(source.text)

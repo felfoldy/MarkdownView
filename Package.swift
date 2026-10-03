@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "MarkdownView",
     platforms: [
-        .macOS(.v13),
+        .macOS(.v26),
         .iOS(.v16),
         .tvOS(.v16),
         .watchOS(.v9),
