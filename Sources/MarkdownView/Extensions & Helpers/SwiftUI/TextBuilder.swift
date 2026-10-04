@@ -10,11 +10,16 @@ import SwiftUI
 @resultBuilder
 struct TextBuilder {
     static func buildBlock(_ components: Text...) -> Text {
-        components.reduce(Text(verbatim: ""), +)
+        components.reduce(Text(verbatim: ""), joined)
     }
-    
+
     static func buildArray(_ components: [Text]) -> Text {
-        components.reduce(Text(verbatim: ""), +)
+        components.reduce(Text(verbatim: ""), joined)
+    }
+
+    // Interpolated, as `Text`'s `+` is deprecated.
+    private static func joined(_ first: Text, _ second: Text) -> Text {
+        Text("\(first)\(second)")
     }
     
     static func buildOptional(_ component: Text?) -> Text {
@@ -33,7 +38,7 @@ struct TextBuilder {
     }
     
     static func buildPartialBlock(accumulated: Text, next: Text) -> Text {
-        accumulated + next
+        joined(accumulated, next)
     }
     
     static func buildPartialBlock(first: Text) -> Text {
