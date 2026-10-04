@@ -15,7 +15,6 @@ extension View {
     /// blocks, keep their taps and report nothing.
     @available(watchOS, unavailable)
     @available(tvOS, unavailable)
-    @available(visionOS, unavailable)
     public func onMarkdownBlockTap(
         perform action: @escaping @MainActor (SourceRange) -> Void
     ) -> some View {

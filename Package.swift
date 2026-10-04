@@ -41,7 +41,7 @@ let package = Package(
                 .product(
                     name: "RichText",
                     package: "RichText",
-                    condition: .when(platforms: [.iOS, .macOS])
+                    condition: .when(platforms: [.iOS, .macOS, .visionOS])
                 ),
             ],
             swiftSettings: [
@@ -62,7 +62,7 @@ let package = Package(
                 .product(
                     name: "RichText",
                     package: "RichText",
-                    condition: .when(platforms: [.iOS, .macOS])
+                    condition: .when(platforms: [.iOS, .macOS, .visionOS])
                 ),
             ],
             path: "Tests/MarkdownViewTests",

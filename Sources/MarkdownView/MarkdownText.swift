@@ -13,7 +13,6 @@ import Markdown
 /// A text-based view that renders markdown content.
 @available(watchOS, unavailable)
 @available(tvOS, unavailable)
-@available(visionOS, unavailable)
 public struct MarkdownText: View {
     private var content: MarkdownContent
     
@@ -73,7 +72,6 @@ public struct MarkdownText: View {
 @available(iOS 17.0, macOS 14.0, *)
 @available(watchOS, unavailable)
 @available(tvOS, unavailable)
-@available(visionOS, unavailable)
 #Preview {
     MarkdownText(
         """
